@@ -16,29 +16,30 @@
                         <h4>Liste des opérations du <xsl:value-of select="@dateDebut"> </xsl:value-of> au <xsl:value-of select="@dateFin"></xsl:value-of></h4>
                         <table border="1" width="85%">
                             <tr>
-                                <th>Date</th><th>Description</th><th>Montant</th>
+                                <th>Type Operation</th><th>Date</th><th>Description</th><th>Montant</th>
                             </tr>
                             <xsl:for-each select="operation">
                                 <tr>
+                                    <td ><xsl:value-of select="@type"></xsl:value-of></td>
                                     <td><xsl:value-of select="@date"></xsl:value-of></td>
                                     <td><xsl:value-of select="@description"></xsl:value-of></td>
-                                    <td><xsl:value-of select="@montant"></xsl:value-of></td>
+                                    <td align ="center"><xsl:value-of select="@montant"></xsl:value-of></td>
                                 </tr>
                                 
                             </xsl:for-each>
                             <tr>
-                                <th colspan="2"> Total des opérations débits</th>
+                                <th colspan="3"> Total des opérations débits</th>
                                 
                                 <th><xsl:value-of select="sum(operation[@type='DEBIT']/@montant)"></xsl:value-of></th>
                                 
                                 
                             </tr>
                             <tr>
-                                <th colspan="2"> Total des opérations crédtis</th>
+                                <th colspan="3"> Total des opérations crédtis</th>
                                 <th><xsl:value-of select="sum(operation[@type='CREDIT']/@montant)"></xsl:value-of></th>
                             </tr>
                             <tr>
-                                <th colspan="2"> Total des opérations  </th>
+                                <th colspan="3"> Total des opérations  </th>
                                 <th><xsl:value-of select="sum(operation[@type='CREDIT']/@montant)-sum(operation[@type='DEBIT']/@montant)"></xsl:value-of></th>
                             </tr>
                         </table>

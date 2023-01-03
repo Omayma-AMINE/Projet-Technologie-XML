@@ -22,7 +22,7 @@
                                 <tr>
                                     <td><xsl:value-of select="@date"></xsl:value-of></td>
                                     <td><xsl:value-of select="@description"></xsl:value-of></td>
-                                    <td><xsl:value-of select="@montant"></xsl:value-of></td>
+                                    <td align ="center"><xsl:value-of select="@montant"></xsl:value-of></td>
                                 </tr>
                                 
                             </xsl:for-each>
